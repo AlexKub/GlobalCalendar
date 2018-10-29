@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CalendarManagment</name>
+    </assembly>
+    <members>
+        <member name="T:CalendarManagment.DirectoryManager">
+            <summary>
+            Управление и типовые методы для Каталогов
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.DirectoryManager.AppFolder">
+            <summary>
+            Папка, из которой было запущено приложение
+            </summary>
+        </member>
+        <member name="M:CalendarManagment.Extensions.IsComment(System.Xml.XmlNode)">
+            <summary>
+            Флаг для узлов комментария
+            </summary>
+            <param name="node">Проверяемый узел</param>
+            <returns>ФОзвращает флаг принадлежности данного xml-узла к Комментариям</returns>
+        </member>
+        <member name="T:CalendarManagment.FileManager">
+            <summary>
+            Менеджер файлов
+            </summary>
+        </member>
+        <member name="F:CalendarManagment.FileManager.LogFolderName">
+            <summary>
+            Имя папки логирования
+            </summary>
+        </member>
+        <member name="F:CalendarManagment.FileManager.DataFolderName">
+            <summary>
+            Имя папки с фалами данных
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.FileManager.LogFolder">
+            <summary>
+            Возвращает экземпляр каталога Логов
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.FileManager.DataFolder">
+            <summary>
+            Возвращает экземпляр каталога для файлов данных
+            </summary>
+        </member>
+        <member name="M:CalendarManagment.FileManager.GetOrCreateFile(CalendarManagment.FileType)">
+            <summary>
+            Безопасное создание экземпляра соотвествующего файла
+            </summary>
+            <param name="fType">Тип создаваемого файла</param>
+            <returns>Возвращает ссылку на файл или null</returns>
+        </member>
+        <member name="M:CalendarManagment.FileManager.GetOrCreateFile(System.String)">
+            <summary>
+            Основной метод создания файла.
+            </summary>
+            <param name="fileName">Полное имя файла</param>
+            <returns>Возвращат новыфй экземпляр FileInfo или null в исключительных ситуациях</returns>
+        </member>
+        <member name="M:CalendarManagment.FileManager.RemoveFile(CalendarManagment.FileType)">
+            <summary>
+            Безопасное удаление файла
+            </summary>
+            <param name="fType">Тип файла</param>
+        </member>
+        <member name="M:CalendarManagment.FileManager.ReplaceFile(CalendarManagment.FileType)">
+            <summary>
+            Заменяет файл
+            </summary>
+            <param name="fType">Тип файла</param>
+            <returns>Возвращает ссылку на новый файл</returns>
+        </member>
+        <member name="M:CalendarManagment.FileManager.GetFileName(CalendarManagment.FileType)">
+            <summary>
+            Получение полного имени файла
+            </summary>
+            <param name="fType">Тип файла программы</param>
+            <returns>Возвращает полное имя соответствующего файла или пустую строку</returns>
+        </member>
+        <!-- Проигнорирован некорректный комментарий XML для члена "M:CalendarManagment.FileManager.GetDateFileName(System.DateTime,System.String)" -->
+        <member name="M:CalendarManagment.FileManager.GetUniqueFileName(System.String)">
+            <summary>
+            генерация уникального имени файла
+            </summary>
+            <param name="fileFullName">Полное имя файла (с путём и расширением)</param>
+            <returns>Возвращает уникальное имя файла с приставкой _N или текущее имя в исключительных ситуациях</returns>
+        </member>
+        <member name="T:CalendarManagment.FileType">
+            <summary>
+            Типы файлов
+            </summary>
+        </member>
+        <member name="F:CalendarManagment.FileType.LOG">
+            <summary>
+            Лог-файл
+            </summary>
+        </member>
+        <member name="F:CalendarManagment.FileType.XmlSettings">
+            <summary>
+            Пользовательские настроки приложения
+            </summary>
+        </member>
+        <member name="T:CalendarManagment.MessageParameter">
+            <summary>
+            Параметр для записи в Лог
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.MessageParameter.Name">
+            <summary>
+            Имя параметра
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.MessageParameter.Value">
+            <summary>
+            Значение параметра
+            </summary>
+        </member>
+        <member name="M:CalendarManagment.MessageParameter.#ctor(System.String,System.String)">
+            <summary>
+            СОздание экземпляра Параметра
+            </summary>
+            <param name="paramName">Имя параметра</param>
+            <param name="value">Значение параметра</param>
+        </member>
+        <member name="T:CalendarManagment.Process">
+            <summary>
+            Класс для упрощённого логирвоанного вызова внишних программ
+            </summary>
+        </member>
+        <member name="M:CalendarManagment.Process.OpenFolder(System.String)">
+            <summary>
+            Открытие каталога в Проводнике Windows (исключения не обрабатываются)
+            </summary>
+            <param name="path">Путь открываемого каталога</param>
+        </member>
+        <member name="M:CalendarManagment.Process.OpenFolder(System.IO.DirectoryInfo)">
+            <summary>
+            Открытие каталога в Проводнике Windows (исключения не обрабатываются)
+            </summary>
+            <param name="dir">Открываемый каталог</param>
+        </member>
+        <member name="M:CalendarManagment.Process.StartDefault(System.IO.FileInfo)">
+            <summary>
+            Открывает приложение по умолчанию для указанного файла (исключения не обрабатываются)
+            </summary>
+            <param name="file">Файл, который необходимо открыть в приложении по умолчанию</param>
+        </member>
+        <member name="T:CalendarManagment.LibXmlSettings">
+            <summary>
+            Абстракция для реализации чтения/записи настроек в Общий файл
+            </summary>
+        </member>
+        <member name="F:CalendarManagment.LibXmlSettings._asmName">
+            <summary>
+            Имя библиотеки, к которой приадлежит наследующий класс настроек
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.LibXmlSettings.FileInfo">
+            <summary>
+            Возвращает информацию об Общем файле настроек
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.LibXmlSettings.Doc">
+            <summary>
+            Возвращает экземпляр XmlDocument, используемый базовым классом
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.LibXmlSettings.LibRoot">
+            <summary>
+            Получение узла настроек текущей библиотеки
+            </summary>
+        </member>
+        <member name="M:CalendarManagment.LibXmlSettings.#ctor">
+            <summary>
+            Создание экземпляра настроек с записью дефолтных значений при первом запуске
+            </summary>
+        </member>
+        <member name="M:CalendarManagment.LibXmlSettings.GetDefaultSettings">
+            <summary>
+            Коллекция настроек по умолчанию для Библиотеки
+            </summary>
+            <returns>Возвращает коллекцию настроек по умолчанию для записи в пустой файл</returns>
+        </member>
+        <member name="M:CalendarManagment.LibXmlSettings.Save(System.Collections.Generic.IEnumerable{System.Xml.XmlNode})">
+            <summary>
+            Сохранение набора настроек в Общем файле
+            </summary>
+            <param name="settings">Коллекция настроек для сохранения</param>
+            <returns>Возвращет флаг успешного сохранения</returns>
+        </member>
+        <member name="M:CalendarManagment.LibXmlSettings.Save">
+            <summary>
+            Сохранение изменений в настройках
+            </summary>
+        </member>
+        <member name="M:CalendarManagment.LibXmlSettings.Update">
+            <summary>
+            Обновляет закеширвоанный файл настроек
+            </summary>
+        </member>
+        <member name="T:CalendarManagment.LogManager">
+            <summary>
+            Управление записью в Лог
+            </summary>
+        </member>
+        <member name="M:CalendarManagment.LogManager.WriteMessage(System.String,CalendarManagment.MessageParameter[])">
+            <summary>
+            Записывает сообщение в лог
+            </summary>
+            <param name="message">Сообщение</param>
+        </member>
+        <member name="M:CalendarManagment.LogManager.WriteException(System.String,System.Exception,CalendarManagment.MessageParameter[])">
+            <summary>
+            Запись данных об исключении
+            </summary>
+            <param name="message">Поясняющее сообщение</param>
+            <param name="ex">Экземпляр сообщения</param>
+            <param name="parameters">Дополнительные именовнные параметры для записи</param>
+        </member>
+        <member name="T:CalendarManagment.NestedSetting">
+            <summary>
+            Общая логика для вложенных узлов  бибилотеки в файле настроек
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.NestedSetting.NodeName">
+            <summary>
+            Имя текущего узла
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.NestedSetting.LibRootNode">
+            <summary>
+            Узел в xml-файле настроек, соответствующей текущей бибилотеке
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.NestedSetting.CurentRoot">
+            <summary>
+            Возвращает текущий узел из файла настроек
+            </summary>
+        </member>
+        <member name="M:CalendarManagment.NestedSetting.GetChildsWithOutComments">
+            <summary>
+            Возвращает дочернюю коллекцию узлов для текущего узла в xml-файле настроек, исключая комментарии
+            </summary>
+        </member>
+        <member name="M:CalendarManagment.NestedSetting.#ctor(CalendarManagment.LibXmlSettings)">
+            <summary>
+            Создание вложенного узла для библиотеки в файле настреок
+            </summary>
+            <param name="libSettings">Узел текущей библиотеки в файле настроек</param>
+        </member>
+        <member name="M:CalendarManagment.NestedSetting.Dispose">
+            <summary>
+            Логика деструкции. вызывается при вызове Dispose() LibXmlSettings (того, что передали в конструктор)
+            </summary>
+        </member>
+        <member name="T:CalendarManagment.Resources">
+            <summary>
+              Класс ресурса со строгой типизацией для поиска локализованных строк и т.д.
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.Resources.ResourceManager">
+            <summary>
+              Возвращает кэшированный экземпляр ResourceManager, использованный этим классом.
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.Resources.Culture">
+            <summary>
+              Перезаписывает свойство CurrentUICulture текущего потока для всех
+              обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.Resources.GlobalSettings">
+             <summary>
+               Ищет локализованную строку, похожую на &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+            &lt;Settings&gt;
+              
+            &lt;/Settings&gt;.
+             </summary>
+        </member>
+        <member name="M:CalendarManagment.XmlSettingsFile.GetLibSettings(System.String)">
+            <summary>
+            Получение узла из XML-файла настроек с данными для текущей библотеки
+            </summary>
+            <param name="anyLibType">Тип из интересующей нас сборки</param>
+            <returns>Возвращает узел интересующей нас сборки или null</returns>
+        </member>
+        <member name="M:CalendarManagment.XmlSettingsFile.WriteLibSettings(System.String,System.Collections.Generic.IEnumerable{System.Xml.XmlNode})">
+            <summary>
+            Запись настроек в общий файл
+            </summary>
+            <param name="anyLibType">Тип из записываемой библиотеки</param>
+            <param name="settings">Настройки</param>
+        </member>
+        <member name="T:CalendarManagment.Settings.XmlSettingsNode">
+            <summary>
+            Отдельный узел в файле настроек
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.Settings.XmlSettingsNode.Comment">
+            <summary>
+            Текст для тега свеху с комментарием. Если комментарии не нужны - оставлять пустую строку.
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.Settings.XmlSettingsNode.Item(System.String)">
+            <summary>
+            Получение значения аттрибута по его имени
+            </summary>
+            <param name="atrName">Имя аттрибута</param>
+            <returns>Возвращает значение аттрибута или пустую строку</returns>
+        </member>
+        <member name="P:CalendarManagment.Settings.XmlSettingsNode.Value">
+            <summary>
+            Значение текущего узла
+            </summary>
+        </member>
+        <member name="P:CalendarManagment.Settings.XmlSettingsNode.HasAttributes">
+            <summary>
+            Возвращает флаг наличия аттрибутов со значениями в текущем узле
+            </summary>
+        </member>
+    </members>
+</doc>
