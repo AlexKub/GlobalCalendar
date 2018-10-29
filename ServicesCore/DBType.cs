@@ -5,13 +5,17 @@
     /// </summary>
     public enum DBType
     {
+        /*
+         * Значения должны соответствовать индексам в таблице InternalRelations.DBTypes
+         * Индексы в колонке DBType
+         */
         /// <summary>
         /// Не определён (по умолчанию)
         /// </summary>
-        UnKnown,
+        UnKnown = 0,
         /// <summary>
-        /// Рабочий каледнарь
+        /// Рабочий календарь
         /// </summary>
-        WorkCalendar
+        WorkCalendar = 1
     }
 }
