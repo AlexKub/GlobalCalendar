@@ -1,7 +1,4 @@
-﻿using System;
-using System.Data.SqlClient;
-
-namespace ServicesCore
+﻿namespace ServicesCore
 {
     /// <summary>
     /// Базовый класс для сервисов Календаря
@@ -20,6 +17,11 @@ namespace ServicesCore
         public string TableNamePrefix { get; private set; }
 
         /// <summary>
+        /// Строка подключения
+        /// </summary>
+        protected string ConnectionString { get; private set; }
+
+        /// <summary>
         /// Новый сервис Календаря
         /// </summary>
         /// <param name="dbType">Тип БД</param>
@@ -27,6 +29,7 @@ namespace ServicesCore
         public CalendarServiceBase(DBType dbType, string conString)
         {
             DB_Type = dbType;
+            ConnectionString = conString;
             TableNamePrefix = SelectTableNamePrefix(conString);
         }
 
