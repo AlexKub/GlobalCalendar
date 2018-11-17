@@ -6,11 +6,11 @@
     [System.Diagnostics.DebuggerDisplay("{DebugDisplay()}")]
     public abstract class WorkCalendar : CalendarServiceBase
     {
-        public WorkCalendar(string conString) : base(DBType.WorkCalendar, conString) { }
+        public WorkCalendar(DB_Credentials work, DB_Credentials intern) : base(DBType.WorkCalendar, intern, work) { }
 
         string DebugDisplay()
         {
-            return (string.IsNullOrEmpty(ConnectionString) ? "EMPTY" : ConnectionString) + " | " + (string.IsNullOrEmpty(TableNamePrefix) ? "NO_PREFIX" : TableNamePrefix);
+            return (string.IsNullOrEmpty(InternalCreds?.ConnectionString) ? "EMPTY" : InternalCreds.ConnectionString) + " | " + (string.IsNullOrEmpty(DBTypePrefix) ? "NO_PREFIX" : DBTypePrefix);
         }
 
          
